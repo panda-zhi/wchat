@@ -1,0 +1,10 @@
+{
+  "name": "closeExpiredOrders",
+  "version": "1.0.0",
+  "description": "定时关闭超时未支付订单并回滚库存",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "pay",
+  "version": "1.0.0",
+  "description": "支付：一期模拟支付，二期在此分支接入云开发微信支付",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "adminCheck",
+  "version": "1.0.0",
+  "description": "返回当前 openid 是否管理员",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

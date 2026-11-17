@@ -1,0 +1,38 @@
+<view class="ship">
+  <view wx:if="{{!order}}" class="ship__empty">
+    <view class="ship__empty-text">未获取到订单信息</view>
+    <view class="ship__empty-hint">请从订单管理列表进入发货页</view>
+  </view>
+
+  <block wx:else>
+    <view class="ship__card">
+      <view class="ship__label">收货信息</view>
+      <view class="ship__row">
+        <text>{{order.receiver.name}} {{order.receiver.phone}}</text>
+        <text class="ship__copy" data-text="{{order.receiver.phone}}" bindtap="onCopy">复制电话</text>
+      </view>
+      <view class="ship__row">
+        <text class="ship__address">{{order.receiver.region}} {{order.receiver.detail}}</text>
+        <text class="ship__copy" data-text="{{order.receiver.region}}{{order.receiver.detail}}" bindtap="onCopy">复制地址</text>
+      </view>
+      <view class="ship__row ship__row--muted" wx:if="{{order.remark}}">备注：{{order.remark}}</view>
+    </view>
+
+    <view class="ship__card">
+      <view class="ship__row">
+        <text class="ship__label">快递公司</text>
+        <picker range="{{companies}}" range-key="label" value="{{companyIndex}}" bindchange="onCompanyChange">
+          <view class="ship__picker">{{companies[companyIndex].label}} ›</view>
+        </picker>
+      </view>
+      <view class="ship__row">
+        <text class="ship__label">运单号</text>
+        <input class="ship__input" value="{{trackingNo}}" bindinput="onInput" placeholder="请输入运单号" />
+      </view>
+    </view>
+
+    <view class="ship__submit {{submitting ? 'ship__submit--disabled' : ''}}" bindtap="onSubmit">
+      {{submitting ? '提交中…' : '确认发货'}}
+    </view>
+  </block>
+</view>

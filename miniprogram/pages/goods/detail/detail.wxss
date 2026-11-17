@@ -1,0 +1,138 @@
+.detail {
+  min-height: 100vh;
+  padding-bottom: calc(120rpx + env(safe-area-inset-bottom));
+}
+
+.detail__swiper {
+  width: 100%;
+  height: 750rpx;
+  background: #ffffff;
+}
+
+.detail__img {
+  width: 100%;
+  height: 100%;
+}
+
+.detail__info {
+  background: #ffffff;
+  padding: 24rpx 28rpx;
+}
+
+.detail__price {
+  color: var(--color-price);
+  font-size: 48rpx;
+  font-weight: 600;
+}
+
+.detail__yen {
+  font-size: 28rpx;
+  margin-right: 4rpx;
+}
+
+.detail__title {
+  margin-top: 12rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.detail__selling {
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: var(--color-muted);
+}
+
+.detail__meta {
+  margin-top: 16rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: var(--color-muted);
+}
+
+.detail__stock--out {
+  color: var(--color-price);
+}
+
+.detail__section {
+  margin-top: 20rpx;
+  background: #ffffff;
+  padding: 24rpx 28rpx;
+}
+
+.detail__section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.detail__desc {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.detail__notice {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: var(--color-muted);
+}
+
+.detail__bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 12rpx 20rpx calc(12rpx + env(safe-area-inset-bottom));
+  background: #ffffff;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.detail__cart {
+  width: 100rpx;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.detail__cart-icon {
+  font-size: 34rpx;
+  line-height: 1;
+}
+
+.detail__cart-text {
+  font-size: 22rpx;
+  margin-top: 4rpx;
+}
+
+.detail__btn {
+  flex: 1;
+  margin-left: 16rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  line-height: 76rpx;
+  padding: 0;
+  color: #ffffff;
+}
+
+.detail__btn--add {
+  background: #ffb08a;
+}
+
+.detail__btn--buy {
+  background: var(--color-primary);
+}
+
+.detail__btn[disabled] {
+  background: #e5e5e5;
+  color: #ffffff;
+}
+
+.detail__hint {
+  padding-top: 240rpx;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 28rpx;
+}

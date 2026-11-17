@@ -1,0 +1,14 @@
+<view class="card">
+  <view class="card__cover">
+    <image class="card__img" src="{{goods.coverUrl}}" mode="aspectFill" lazy-load="{{true}}" />
+    <view wx:if="{{goods.soldOut}}" class="card__mask">{{goods.stockText}}</view>
+  </view>
+  <view class="card__body">
+    <view class="card__title">{{goods.title}}</view>
+    <view class="card__unit">{{goods.unit}}</view>
+    <view class="card__bottom">
+      <view class="card__price"><text class="card__yen">¥</text>{{goods.priceText}}</view>
+      <view class="card__stock {{goods.soldOut ? 'card__stock--out' : ''}}">{{goods.stockText}}</view>
+    </view>
+  </view>
+</view>

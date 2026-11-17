@@ -1,0 +1,38 @@
+<view class="agoods">
+  <view class="agoods__bar">
+    <view class="agoods__add" bindtap="onCreate">+ 新增商品</view>
+  </view>
+
+  <empty wx:if="{{!loading && list.length === 0}}" text="暂无商品，点击上方新增" />
+
+  <view wx:for="{{list}}" wx:key="_id" class="agoods__card">
+    <image class="agoods__img" src="{{item.coverUrl}}" mode="aspectFill" />
+    <view class="agoods__info">
+      <view class="agoods__title">{{item.title}}</view>
+      <view class="agoods__meta">
+        <text class="agoods__price">¥{{item.priceText}}</text>
+        <text class="agoods__unit">/{{item.unit}}</text>
+      </view>
+      <view class="agoods__meta">
+        <text class="agoods__stock">库存 {{item.stock}}</text>
+        <text class="agoods__sold">销量 {{item.sold}}</text>
+      </view>
+
+      <view class="agoods__stockops">
+        <view class="agoods__step" data-id="{{item._id}}" bindtap="onMinus">−</view>
+        <view class="agoods__stocknum" data-id="{{item._id}}" bindtap="onEditStock">{{item.stock}}</view>
+        <view class="agoods__step" data-id="{{item._id}}" bindtap="onPlus">+</view>
+        <text class="agoods__onoff">{{item.onSale ? '已上架' : '已下架'}}</text>
+        <switch checked="{{item.onSale}}" data-id="{{item._id}}" bindchange="onToggle" color="#FF7A45" />
+      </view>
+
+      <view class="agoods__actions">
+        <view class="agoods__btn" data-id="{{item._id}}" catchtap="onRemove">删除</view>
+        <view class="agoods__btn agoods__btn--primary" data-id="{{item._id}}" catchtap="onEdit">编辑</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{loading}}" class="agoods__tip">加载中…</view>
+  <view wx:elif="{{noMore && list.length > 0}}" class="agoods__tip">没有更多了</view>
+</view>

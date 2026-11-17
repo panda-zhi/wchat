@@ -1,0 +1,25 @@
+<view class="verify">
+  <view class="verify__card">
+    <view class="verify__label">顾客出示的 4 位自提码</view>
+    <input
+      class="verify__code"
+      type="number"
+      maxlength="4"
+      value="{{code}}"
+      bindinput="onInput"
+      placeholder="0000"
+    />
+    <view class="verify__scan" bindtap="onScan">扫码识别</view>
+  </view>
+
+  <view
+    wx:if="{{result}}"
+    class="verify__result {{result.type === 'success' ? 'verify__result--ok' : 'verify__result--error'}}"
+  >{{result.text}}</view>
+
+  <view class="verify__submit {{submitting ? 'verify__submit--disabled' : ''}}" bindtap="onSubmit">
+    {{submitting ? '核销中…' : '核销'}}
+  </view>
+
+  <view wx:if="{{result && result.type === 'success'}}" class="verify__again" bindtap="onReset">继续核销下一单</view>
+</view>

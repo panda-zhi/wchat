@@ -1,0 +1,93 @@
+.ship {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 160rpx;
+}
+
+.ship__card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 8rpx 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.ship__label {
+  font-size: 28rpx;
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+.ship__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 92rpx;
+  border-top: 1rpx solid #f0f0f0;
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+.ship__card .ship__label:first-child {
+  border-top: none;
+  min-height: 72rpx;
+}
+
+.ship__row--muted {
+  color: var(--color-muted);
+  font-size: 26rpx;
+}
+
+.ship__address {
+  flex: 1;
+  margin-right: 16rpx;
+}
+
+.ship__copy {
+  color: var(--color-primary);
+  font-size: 24rpx;
+  flex-shrink: 0;
+}
+
+.ship__picker {
+  font-size: 28rpx;
+  color: var(--color-text);
+}
+
+.ship__input {
+  flex: 1;
+  text-align: right;
+  font-size: 28rpx;
+}
+
+.ship__submit {
+  position: fixed;
+  left: 24rpx;
+  right: 24rpx;
+  bottom: 40rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 999rpx;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.ship__submit--disabled {
+  opacity: 0.6;
+}
+
+.ship__empty {
+  padding: 120rpx 0;
+  text-align: center;
+}
+
+.ship__empty-text {
+  font-size: 30rpx;
+  color: var(--color-text);
+}
+
+.ship__empty-hint {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: var(--color-muted);
+}

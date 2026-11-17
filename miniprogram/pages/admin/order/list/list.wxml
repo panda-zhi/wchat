@@ -1,0 +1,42 @@
+<view class="aorders">
+  <scroll-view class="aorders__tabs" scroll-x="true" enable-flex="true">
+    <view
+      wx:for="{{tabs}}"
+      wx:key="key"
+      class="aorders__tab {{tab === item.key ? 'aorders__tab--on' : ''}}"
+      data-key="{{item.key}}"
+      bindtap="onSwitchTab"
+    >{{item.label}}</view>
+  </scroll-view>
+
+  <empty wx:if="{{!loading && list.length === 0}}" text="暂无订单" />
+
+  <view wx:for="{{list}}" wx:key="_id" class="aorders__card">
+    <view class="aorders__head">
+      <text class="aorders__no">订单 {{item.shortNo}}</text>
+      <text class="aorders__status">{{item.statusText}}</text>
+    </view>
+
+    <view class="aorders__row">
+      <text class="aorders__summary">{{item.summary}}</text>
+      <text class="aorders__amount">¥{{item.payAmountText}}</text>
+    </view>
+    <view class="aorders__meta">
+      <text>{{item.deliveryText}} · 共 {{item.totalCount}} 件</text>
+      <text>买家 {{item.buyer}}</text>
+    </view>
+    <view class="aorders__meta">
+      <text>{{item.createdText}}</text>
+      <text wx:if="{{item.express}}">{{item.express.company}} {{item.express.trackingNo}}</text>
+    </view>
+
+    <view class="aorders__actions">
+      <view wx:if="{{item.canRefund}}" class="aorders__btn" data-id="{{item._id}}" catchtap="onRefund">标记退款</view>
+      <view wx:if="{{item.canVerify}}" class="aorders__btn aorders__btn--primary" data-id="{{item._id}}" catchtap="onVerify">核销</view>
+      <view wx:if="{{item.canShip}}" class="aorders__btn aorders__btn--primary" data-id="{{item._id}}" catchtap="onShip">发货</view>
+    </view>
+  </view>
+
+  <view wx:if="{{loading}}" class="aorders__tip">加载中…</view>
+  <view wx:elif="{{noMore && list.length > 0}}" class="aorders__tip">没有更多了</view>
+</view>

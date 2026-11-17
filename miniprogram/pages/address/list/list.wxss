@@ -1,0 +1,73 @@
+.address {
+  min-height: 100vh;
+  padding-bottom: calc(140rpx + env(safe-area-inset-bottom));
+}
+
+.address__list {
+  padding: 20rpx;
+}
+
+.address__item {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.address__line {
+  display: flex;
+  align-items: center;
+}
+
+.address__name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.address__phone {
+  margin-left: 16rpx;
+  font-size: 26rpx;
+  color: var(--color-muted);
+}
+
+.address__tag {
+  margin-left: 12rpx;
+  padding: 0 10rpx;
+  line-height: 32rpx;
+  font-size: 20rpx;
+  color: var(--color-primary);
+  border: 1rpx solid var(--color-primary);
+  border-radius: 6rpx;
+}
+
+.address__detail {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.address__actions {
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid var(--color-border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.address__action {
+  margin-left: 32rpx;
+  font-size: 26rpx;
+  color: var(--color-text);
+}
+
+.address__action--danger {
+  color: var(--color-price);
+}
+
+.address__footer {
+  position: fixed;
+  left: 24rpx;
+  right: 24rpx;
+  bottom: calc(24rpx + env(safe-area-inset-bottom));
+}

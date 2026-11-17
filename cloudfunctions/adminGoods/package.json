@@ -1,0 +1,10 @@
+{
+  "name": "adminGoods",
+  "version": "1.0.0",
+  "description": "商家商品管理：新增、编辑、上下架、改库存、删除",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

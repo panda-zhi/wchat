@@ -1,0 +1,44 @@
+<view class="mine">
+  <view class="mine__card">
+    <view class="mine__title">我的订单</view>
+    <view class="mine__entries">
+      <view
+        wx:for="{{orderEntries}}"
+        wx:key="key"
+        class="mine__entry"
+        data-tab="{{item.key}}"
+        bindtap="goOrders"
+      >
+        <text class="mine__entry-label">{{item.label}}</text>
+        <text class="mine__entry-arrow">›</text>
+      </view>
+    </view>
+    <view class="mine__entry mine__entry--single" bindtap="goOrders" data-tab="all">
+      <text class="mine__entry-label">全部订单</text>
+      <text class="mine__entry-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="mine__card">
+    <view class="mine__entry mine__entry--single" bindtap="goAddress">
+      <text class="mine__entry-label">收货地址</text>
+      <text class="mine__entry-arrow">›</text>
+    </view>
+  </view>
+
+  <view wx:if="{{isAdmin}}" class="mine__card">
+    <view class="mine__title">商家管理</view>
+    <view class="mine__entry mine__entry--single" bindtap="goAdminGoods">
+      <text class="mine__entry-label">商品管理</text>
+      <text class="mine__entry-arrow">›</text>
+    </view>
+    <view class="mine__entry mine__entry--single" bindtap="goAdminOrders">
+      <text class="mine__entry-label">订单管理</text>
+      <text class="mine__entry-arrow">›</text>
+    </view>
+    <view class="mine__entry mine__entry--single" bindtap="goAdminVerify">
+      <text class="mine__entry-label">自提核销</text>
+      <text class="mine__entry-arrow">›</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+{
+  "appid": "touristappid",
+  "projectname": "fruit-shop",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true
+  },
+  "libVersion": "2.21.2"
+}

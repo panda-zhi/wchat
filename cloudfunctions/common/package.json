@@ -1,0 +1,7 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "云函数公共逻辑（纯函数，不依赖 wx-server-sdk）",
+  "main": "lib/index.js",
+  "private": true
+}

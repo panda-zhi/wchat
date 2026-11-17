@@ -1,0 +1,24 @@
+<view class="address">
+  <empty wx:if="{{!loading && list.length === 0}}" text="还没有收货地址" button-text="新增地址" bind:action="onAdd" />
+
+  <view wx:if="{{list.length > 0}}" class="address__list">
+    <view wx:for="{{list}}" wx:key="_id" class="address__item">
+      <view class="address__main">
+        <view class="address__line">
+          <text class="address__name">{{item.name}}</text>
+          <text class="address__phone">{{item.phoneMasked}}</text>
+          <text wx:if="{{item.isDefault}}" class="address__tag">默认</text>
+        </view>
+        <view class="address__detail">{{item.regionText}} {{item.detail}}</view>
+      </view>
+      <view class="address__actions">
+        <text class="address__action" data-id="{{item._id}}" bindtap="onEdit">编辑</text>
+        <text class="address__action address__action--danger" data-id="{{item._id}}" bindtap="onDelete">删除</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="address__footer">
+    <view class="btn-primary" bindtap="onAdd">新增地址</view>
+  </view>
+</view>

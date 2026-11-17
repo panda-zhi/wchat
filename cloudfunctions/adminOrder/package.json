@@ -1,0 +1,10 @@
+{
+  "name": "adminOrder",
+  "version": "1.0.0",
+  "description": "商家订单列表、发货、标记退款",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

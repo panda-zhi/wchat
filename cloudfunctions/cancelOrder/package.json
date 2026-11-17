@@ -1,0 +1,10 @@
+{
+  "name": "cancelOrder",
+  "version": "1.0.0",
+  "description": "取消订单并回滚库存 / 隐藏订单",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

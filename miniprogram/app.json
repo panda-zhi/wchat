@@ -1,0 +1,26 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/goods/detail/detail",
+    "pages/cart/cart",
+    "pages/address/list/list",
+    "pages/address/edit/edit",
+    "pages/order/confirm/confirm",
+    "pages/order/list/list",
+    "pages/order/detail/detail",
+    "pages/admin/goods/list/list",
+    "pages/admin/goods/edit/edit",
+    "pages/admin/order/list/list",
+    "pages/admin/order/ship/ship",
+    "pages/admin/order/verify/verify",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "navigationBarTitleText": "鲜果铺",
+    "navigationBarBackgroundColor": "#FF7A45",
+    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

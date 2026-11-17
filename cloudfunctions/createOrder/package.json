@@ -1,0 +1,10 @@
+{
+  "name": "createOrder",
+  "version": "1.0.0",
+  "description": "建单：校验、扣库存、服务端算价、生成订单与自提码",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

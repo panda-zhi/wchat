@@ -1,0 +1,88 @@
+<view class="confirm">
+  <view class="confirm__tabs">
+    <view
+      class="confirm__tab {{deliveryType === 'express' ? 'confirm__tab--on' : ''}}"
+      data-type="express"
+      bindtap="onSwitchDelivery"
+    >快递配送</view>
+    <view
+      class="confirm__tab {{deliveryType === 'pickup' ? 'confirm__tab--on' : ''}}"
+      data-type="pickup"
+      bindtap="onSwitchDelivery"
+    >到店自提</view>
+  </view>
+
+  <view wx:if="{{deliveryType === 'express'}}" class="confirm__card" bindtap="onChooseAddress">
+    <block wx:if="{{address}}">
+      <view class="confirm__addr-head">
+        <text class="confirm__addr-name">{{address.name}}</text>
+        <text class="confirm__addr-phone">{{address.phone}}</text>
+      </view>
+      <view class="confirm__addr-detail">{{addressText}}</view>
+    </block>
+    <view wx:else class="confirm__addr-empty">请选择收货地址</view>
+    <text class="confirm__arrow">›</text>
+  </view>
+
+  <view wx:else class="confirm__card">
+    <block wx:if="{{store}}">
+      <view class="confirm__addr-head">
+        <text class="confirm__addr-name">{{store.name}}</text>
+        <text class="confirm__addr-phone">{{store.phone}}</text>
+      </view>
+      <view class="confirm__addr-detail">{{store.address}}</view>
+      <view class="confirm__addr-detail">营业时间：{{store.businessHours}}</view>
+    </block>
+    <view wx:else class="confirm__addr-empty">暂无可用自提门店</view>
+  </view>
+
+  <view class="confirm__card">
+    <view wx:for="{{items}}" wx:key="goodsId" class="confirm__item">
+      <image class="confirm__img" src="{{item.coverUrl}}" mode="aspectFill" />
+      <view class="confirm__item-body">
+        <view class="confirm__item-title">{{item.title}}</view>
+        <view class="confirm__item-unit">{{item.unit}}</view>
+        <view class="confirm__item-row">
+          <text class="confirm__item-price">¥{{item.priceText}}</text>
+          <text class="confirm__item-count">×{{item.count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="confirm__card">
+    <textarea
+      class="confirm__remark"
+      placeholder="备注（选填，最多 100 字）"
+      maxlength="100"
+      value="{{remark}}"
+      bindinput="onRemark"
+    />
+  </view>
+
+  <view class="confirm__card confirm__amount">
+    <view class="confirm__amount-row">
+      <text>商品合计</text>
+      <text>¥{{goodsAmountText}}</text>
+    </view>
+    <view class="confirm__amount-row">
+      <text>运费{{deliveryType === 'pickup' ? '（自提免运费）' : ''}}</text>
+      <text>¥{{freightText}}</text>
+    </view>
+    <view class="confirm__amount-row confirm__amount-row--total">
+      <text>实付</text>
+      <text class="confirm__amount-pay">¥{{payAmountText}}</text>
+    </view>
+  </view>
+
+  <view class="confirm__tip">当前为测试支付，点击提交不会真实扣款。</view>
+
+  <view class="confirm__bar">
+    <view class="confirm__bar-amount">
+      实付 <text class="confirm__bar-pay">¥{{payAmountText}}</text>
+    </view>
+    <view class="confirm__submit {{submitting ? 'confirm__submit--disabled' : ''}}" bindtap="onSubmit">
+      {{submitting ? '提交中…' : '提交订单'}}
+    </view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+{
+  "name": "verifyPickup",
+  "version": "1.0.0",
+  "description": "自提码核销，连续 3 次错误锁定 5 分钟",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

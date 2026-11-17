@@ -1,0 +1,41 @@
+<view wx:if="{{goods}}" class="detail">
+  <swiper
+    class="detail__swiper"
+    indicator-dots="{{goods.images.length > 1}}"
+    circular="{{goods.images.length > 1}}"
+    autoplay="{{false}}"
+  >
+    <swiper-item wx:for="{{goods.images}}" wx:key="*this">
+      <image class="detail__img" src="{{item}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <view class="detail__info">
+    <view class="detail__price"><text class="detail__yen">¥</text>{{goods.priceText}}</view>
+    <view class="detail__title">{{goods.title}}</view>
+    <view wx:if="{{goods.sellingPoint}}" class="detail__selling">{{goods.sellingPoint}}</view>
+    <view class="detail__meta">
+      <text class="detail__unit">{{goods.unit}}</text>
+      <text class="detail__stock {{goods.soldOut ? 'detail__stock--out' : ''}}">{{goods.stockText}}</text>
+    </view>
+  </view>
+
+  <view class="detail__section">
+    <view class="detail__section-title">商品说明</view>
+    <view class="detail__desc">{{goods.description || '暂无说明'}}</view>
+    <view class="detail__notice">生鲜商品签收后 24 小时内可申请售后</view>
+  </view>
+
+  <view class="detail__bar">
+    <view class="detail__cart" bindtap="goCart">
+      <view class="detail__cart-icon">🛒</view>
+      <view class="detail__cart-text">购物车</view>
+    </view>
+    <button class="detail__btn detail__btn--add" disabled="{{!goods.buyable}}" bindtap="onAddCart">加入购物车</button>
+    <button class="detail__btn detail__btn--buy" disabled="{{!goods.buyable}}" bindtap="onBuyNow">{{goods.buyable ? '立即购买' : goods.stockText}}</button>
+  </view>
+</view>
+
+<view wx:elif="{{loading}}" class="detail__hint">加载中…</view>
+
+<view wx:else class="detail__hint" bindtap="onRetry">加载失败，点击重试</view>

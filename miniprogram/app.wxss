@@ -1,0 +1,35 @@
+page {
+  --color-primary: #ff7a45;
+  --color-price: #ff3b30;
+  --color-text: #333333;
+  --color-muted: #999999;
+  --color-bg: #f7f7f7;
+  --color-border: #eeeeee;
+
+  background: var(--color-bg);
+  font-size: 28rpx;
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+view,
+text,
+button,
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.btn-primary[disabled] {
+  background: #f0c9b8;
+  color: #ffffff;
+}

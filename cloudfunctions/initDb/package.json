@@ -1,0 +1,10 @@
+{
+  "name": "initDb",
+  "version": "1.0.0",
+  "description": "一次性数据库初始化云函数（执行成功后请从云端删除）",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

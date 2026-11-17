@@ -1,0 +1,10 @@
+{
+  "name": "confirmReceive",
+  "version": "1.0.0",
+  "description": "确认收货：已发货快递单 → 已完成",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -1,0 +1,55 @@
+<view class="cart">
+  <empty
+    wx:if="{{loaded && items.length === 0}}"
+    text="购物车还是空的"
+    button-text="去逛逛"
+    bind:action="goShopping"
+  />
+
+  <block wx:else>
+    <view class="cart__list">
+      <view
+        wx:for="{{items}}"
+        wx:key="goodsId"
+        class="cart__item {{item.invalid ? 'cart__item--invalid' : ''}}"
+        data-id="{{item.goodsId}}"
+        bindlongpress="onDelete"
+      >
+        <view
+          class="cart__check {{item.checked ? 'cart__check--on' : ''}}"
+          data-id="{{item.goodsId}}"
+          catchtap="onToggle"
+        >{{item.checked ? '✓' : ''}}</view>
+
+        <image class="cart__img" src="{{item.coverUrl}}" mode="aspectFill" />
+
+        <view class="cart__body">
+          <view class="cart__title">{{item.title}}</view>
+          <view class="cart__unit">{{item.unit}}</view>
+          <view wx:if="{{item.invalid}}" class="cart__invalid">已失效</view>
+          <view class="cart__row">
+            <view class="cart__price">¥{{item.priceText}}</view>
+            <view class="stepper">
+              <view class="stepper__btn" data-id="{{item.goodsId}}" data-delta="-1" catchtap="onStep">−</view>
+              <view class="stepper__num">{{item.count}}</view>
+              <view class="stepper__btn" data-id="{{item.goodsId}}" data-delta="1" catchtap="onStep">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="cart__tip">长按商品可删除</view>
+
+    <view class="cart__bar">
+      <view class="cart__all" bindtap="onToggleAll">
+        <view class="cart__check {{allChecked ? 'cart__check--on' : ''}}">{{allChecked ? '✓' : ''}}</view>
+        <text>全选</text>
+      </view>
+      <view class="cart__sum">
+        合计 <text class="cart__amount">¥{{totalText}}</text>
+      </view>
+      <view class="cart__submit" bindtap="onCheckout">结算({{checkedCount}})</view>
+    </view>
+  </block>
+</view>

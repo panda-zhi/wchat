@@ -1,0 +1,48 @@
+<view class="aedit">
+  <view class="aedit__group">
+    <view class="aedit__row">
+      <text class="aedit__label">商品名称</text>
+      <input class="aedit__input" value="{{title}}" data-field="title" bindinput="onInput" placeholder="不超过 30 字" maxlength="30" />
+    </view>
+    <view class="aedit__row">
+      <text class="aedit__label">规格单位</text>
+      <input class="aedit__input" value="{{unit}}" data-field="unit" bindinput="onInput" placeholder="如 500g / 1个" />
+    </view>
+    <view class="aedit__row">
+      <text class="aedit__label">售价（元）</text>
+      <input class="aedit__input" value="{{priceYuan}}" data-field="priceYuan" bindinput="onInput" type="digit" placeholder="如 19.90" />
+    </view>
+    <view class="aedit__row">
+      <text class="aedit__label">库存</text>
+      <input class="aedit__input" value="{{stockText}}" data-field="stockText" bindinput="onInput" type="number" placeholder="0" />
+    </view>
+    <view class="aedit__row">
+      <text class="aedit__label">分类</text>
+      <picker class="aedit__picker" range="{{categories}}" range-key="label" value="{{categoryIndex}}" bindchange="onCategoryChange">
+        <view class="aedit__picker-value">{{categories[categoryIndex].label}} ›</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="aedit__group">
+    <view class="aedit__label aedit__label--block">商品图片（首张为封面，最多 5 张）</view>
+    <view class="aedit__images">
+      <view wx:for="{{images}}" wx:key="*this" class="aedit__image-wrap">
+        <image class="aedit__image" src="{{item}}" mode="aspectFill" />
+        <view class="aedit__image-del" data-index="{{index}}" catchtap="onRemoveImage">×</view>
+        <view wx:if="{{index === 0}}" class="aedit__cover-tag">封面</view>
+      </view>
+      <view wx:if="{{images.length < 5}}" class="aedit__upload" bindtap="onChooseImages">+</view>
+    </view>
+    <view class="aedit__hint">单张图片需小于 300KB</view>
+  </view>
+
+  <view class="aedit__group">
+    <view class="aedit__label aedit__label--block">商品描述（选填）</view>
+    <textarea class="aedit__textarea" value="{{description}}" data-field="description" bindinput="onInput" placeholder="产地、口感、保存方式等" maxlength="500" />
+  </view>
+
+  <view class="aedit__submit {{submitting || uploading ? 'aedit__submit--disabled' : ''}}" bindtap="onSubmit">
+    {{submitting ? '保存中…' : '保存'}}
+  </view>
+</view>

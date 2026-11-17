@@ -1,0 +1,34 @@
+<view class="page">
+  <scroll-view class="tabs" scroll-x="{{true}}" show-scrollbar="{{false}}">
+    <view
+      wx:for="{{categories}}"
+      wx:key="value"
+      class="tabs__item {{activeCategory === item.value ? 'tabs__item--active' : ''}}"
+      data-value="{{item.value}}"
+      bindtap="onTapCategory"
+    >{{item.label}}</view>
+  </scroll-view>
+
+  <view class="list">
+    <goods-card
+      wx:for="{{list}}"
+      wx:key="_id"
+      goods="{{item}}"
+      data-id="{{item._id}}"
+      bindtap="onTapGoods"
+    />
+  </view>
+
+  <empty
+    wx:if="{{!loading && list.length === 0}}"
+    text="{{loadFailed ? '加载失败，请重试' : '暂无在售商品'}}"
+    button-text="{{loadFailed ? '重试' : ''}}"
+    bind:action="onRetry"
+  />
+
+  <view wx:if="{{list.length > 0}}" class="list__footer">
+    <text wx:if="{{loadFailed}}" class="list__retry" bindtap="onRetry">加载失败，点击重试</text>
+    <text wx:elif="{{loading}}">正在加载…</text>
+    <text wx:elif="{{noMore}}">没有更多了</text>
+  </view>
+</view>

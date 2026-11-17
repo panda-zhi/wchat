@@ -1,0 +1,9 @@
+.price {
+  color: var(--color-price);
+  font-size: 30rpx;
+}
+
+.price--large {
+  font-size: 38rpx;
+  font-weight: 600;
+}
